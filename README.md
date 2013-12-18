@@ -191,12 +191,12 @@ Below we can see an example of a Backbone view using the Mediator to emit a noti
 define(['hbs!./stats'], function(template) {
   return {
     type: 'Backbone',
-    events: {
+    events: {b
       'click button': 'clearCompleted'
     },
     initialize: function() {
       this.render();
-      this.sandbox.on('tasks.stats', _.bind(this.render, this));
+      this.sandbox.on('tasks.stats', this.render, this);
     },
     render: function(stats) {
       this.html(template(stats || {}));
